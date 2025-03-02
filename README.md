@@ -18,7 +18,7 @@
 
 ### **1. Clone the Repository**
 ```sh
-git clone [https://github.com/your-repo/todo-app.git](https://github.com/Merve-1/StringBootToDo)
+git clone https://github.com/Merve-1/StringBootToDo
 cd SpringBootToDo
 ```
 
