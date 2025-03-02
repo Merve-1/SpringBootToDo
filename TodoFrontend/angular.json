@@ -36,6 +36,11 @@
       "prefix": "app",
       "architect": {
         "build": {
+          "configurations":{
+            "production":{            
+              "baseHref": "/StringBootToDo/"
+          }
+          },
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/todo-frontend",
