@@ -1,0 +1,62 @@
+<div class="container mt-4" *ngIf="isComponentActive">
+    
+    <!-- Heading for creating a new task -->
+    <h2 class="text-center text-primary">Create New Task</h2>
+    
+    <!-- Card container with shadow effect -->
+    <div class="card shadow p-4">
+        
+        <!-- Form Group for Task Title Input -->
+        <div class="mb-3">
+            <label for="taskTitle" class="form-label">Task Title</label>
+             <!-- Two-way binding with 'newTask.title' -->
+            <input 
+                id="taskTitle"
+                [(ngModel)]="newTask.title" 
+                placeholder="Add New Task" 
+                class="form-control border-primary" required
+            />
+
+            <!-- Dropdown for selecting task status -->
+            <label for="taskStatus" class="form-label mt-3">Task Status</label>
+            <select id="taskStatus" [(ngModel)]="newTask.status" class="form-control border-primary mt-2">
+                <option value="" disabled selected>Select an option</option>
+                <option value="Pending">Pending</option>
+                <option value="Completed">Completed</option>
+            </select>
+        </div>
+
+        <!-- Button to trigger task creation -->
+        <button (click)="createToDo()" class="btn btn-success w-100">Create Task</button>
+    </div>
+
+    <!-- Heading for the to-do list section -->
+    <h2 class="mt-4 text-center text-secondary">To-Do List</h2>
+    
+    <!-- Container for displaying the list of to-do items -->
+    <div class="ToDo-list">
+
+        <!-- Looping through the 'todos' array to display each task -->
+        <div *ngFor="let todo of todos" class="border rounded p-3 mb-3 shadow-sm bg-light">
+            
+            <!-- Displaying task title -->
+            <h3 class="text-dark"><strong>Task:</strong> {{ todo.title }}</h3>
+            
+            <!-- Displaying date of creation, formatted as a short date -->
+            <h5 class="text-muted"><strong>Date of Creation:</strong> {{ todo.date | date:'short' }}</h5>
+            
+            <!-- Displaying task status with conditional styling -->
+            <h5 [class.text-success]="todo.status === 'Completed'" 
+                [class.text-danger]="todo.status === 'Pending'">
+                <strong>Status:</strong> {{ todo.status }}
+            </h5>
+
+            <!-- Edit and delete buttons/icons -->
+            <div>
+                <span (click)="editTask(todo)" class="edit-icon">⋮</span> <!-- Edit Task -->
+                <span (click)="deleteTask(todo.id)" class="delete-icon">🗑️</span> <!-- Delete Task -->
+            </div>
+
+        </div>
+    </div>
+</div>

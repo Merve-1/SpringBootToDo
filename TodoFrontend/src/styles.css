@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-icon, .delete-icon {
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.edit-icon:hover {
+    background: #ddd;
+}
+
+.delete-icon:hover {
+    background: #ff4d4d;
+    color: white;
+}
