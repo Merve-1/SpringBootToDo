@@ -11,7 +11,8 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "https://merve-1.github.io"})
+
 @RequestMapping("/api")
 public class ToDoController {
 
